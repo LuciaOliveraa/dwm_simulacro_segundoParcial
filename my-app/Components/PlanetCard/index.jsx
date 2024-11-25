@@ -1,11 +1,15 @@
 import React from "react";
 import { TouchableOpacity, View, Image, Text, StyleSheet } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 export function PlanetCard({planet}) {
+    const navigation = useNavigation();
+
+    const id = planet.id;
 
     return(
         <View style={styles.card} >
-            <TouchableOpacity style={styles.touchable}>
+            <TouchableOpacity style={styles.touchable} onPress={() => navigation.navigate('Details', { id })}>
                 <Image source={{uri: planet.image}} style={styles.planetImage}/>
                 <Text style={styles.planetName}> {planet.name} </Text>
             </TouchableOpacity>

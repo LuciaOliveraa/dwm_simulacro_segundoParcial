@@ -4,19 +4,9 @@ import { FlatList, View, Text, StyleSheet } from "react-native";
 import { PlanetCard } from "../PlanetCard";
 
 
-export function PlanetsScroll() {
+export function PlanetsScroll({ planets }) {
 
-    const [ planets, setPlanets] = useState([]);
-
-    const fetchPlanets = async () => {
-        const data = await getPlanets();
-        console.log("planets: ", data);
-        setPlanets(data);
-    }
-
-    useEffect(() => {
-        fetchPlanets();
-    }, []);
+    
     
     return (
         <View style={styles.root}>
@@ -34,8 +24,8 @@ export function PlanetsScroll() {
 
 const styles = StyleSheet.create({
     contentContainer: {
-        width: '85%',
-        height: '85%',
+        // width: '85%',
+        // height: '85%',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
